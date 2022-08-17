@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        function getComputerChoice() {
+            const words = ['rock', 'paper', 'scissors']
+            let randomIndex = Math.floor(Math.random()*words.length + 1)
+            let word = words[randomIndex]
+            return word
+        }
+        
+        function playRound(playerSelection, computerSelection = getComputerChoice()) {
+            playerSelection = playerSelection.toLowerCase()
+
+            if (playerSelection == 'rock' && computerSelection == 'paper') {
+                console.log("You lose! Paper beats rock!")
+                return false
+            }
+
+            else if (playerSelection == 'rock' && computerSelection == 'scissors') {
+                console.log("You win! Rock beats scissors!")
+                return true
+            }
+
+            else if (playerSelection == 'paper' && computerSelection == 'rock') {
+                console.log("You win! Paper beats rock!")
+                return true
+            }
+
+            else if (playerSelection == 'paper' && computerSelection == 'scissors') {
+                console.log("You lose! Scissors beats paper!")
+                return false
+            }
+
+            else if (playerSelection == 'scissors' && computerSelection == 'rock') {
+                console.log("You lose! Rock beats scissors!")
+                return false
+            }
+
+            else if (playerSelection == 'scissors' && computerSelection == 'paper') {
+                console.log("You win! Scissors beats paper!")
+                return true
+            }
+
+            else if (playerSelection == computerSelection) {
+                console.log("You tied with the computer!")
+            }
+
+            else {
+                console.log("Wrong answer! Input rock, paper, or scissors.")
+            }
+        }
+        
+        function game() {
+            let player = 0;
+            let computer = 0;
+            for (let i=0; i < 5; i++) {
+                let question = prompt("Rock, paper, scissor, say: ")
+                round = playRound(question)
+                if (round == true) {
+                    player ++
+                }
+
+                else if (round == false) {
+                    computer ++
+                }
+            }
+        
+            if (player > computer) {
+                    console.log("You beat the computer!")
+                }
+
+                else if (player < computer) {
+                    console.log("You lost to the computer!")
+                }
+
+                else {
+                    console.log("You tied with the computer!")
+                }
+        }
+
+        game()
+        
+
+    </script>
+</body>
+</html>
